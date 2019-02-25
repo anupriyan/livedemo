@@ -1,0 +1,114 @@
+{%extends 'base.html'%}
+
+{%block title%}All Todos{%endblock%}
+
+{% block content %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<head>
+
+<style>
+table,td,th{
+border:2px solid  #FF6699;
+}
+
+table{
+border-collapse:collapse;
+width:80%;
+}
+
+th{
+height:60px;
+}
+
+.test1{
+    margin-left: 738px;
+	font-size:18px;
+	}
+	.test2{
+	margin-right: 288px;
+	font-size:18px;
+	
+	}
+	.test3{
+	margin-left: -297px;
+	font-size:18px;
+	}
+
+
+
+</style>
+
+
+</head>
+<body style="    background-color: #66ffcc38;">
+<div>
+
+{%if user.is_authenticated%}
+<h4>Hi,{{user.username}}!!!Welcome<a href="{%url 'logout' %}">Logout</a></h4>
+
+{%endif%}
+</div>
+<h3 align="center" style="color:#FF3300">All Todos</h3>
+<table align="center">
+  <thead>
+         
+		 
+		 <tr>
+	      <th>Title</th>
+		  <th>Description</th>
+		   <th>Created at</th>
+		    <th>Updated at</th>
+			<th>Edit / Delete</th>
+			</tr>
+			
+			</thead>
+			
+			<tbody>
+			
+			   {%for todo in todos%}
+			   
+			    <tr>
+				   <td>{{todo.title}}</td>
+				   
+				   <td>{{todo.description}}</td>
+				   
+				   <td>{{todo.created_at}}</td>
+				   
+				   <td>{{todo.updated_at}}</td>
+				   
+				   
+				   
+				   <td><a href="{%url 'todo:todoedit' todo.id%}">
+				   <button style="color: #74f95c;background-color: #e64891;width: 58px;height: 34px;border-bottom-color: #214a3c;">Edit</button>
+				   
+				 </a>
+				 
+				 <a href="{%url 'todo:tododelete' todo.id%} ">
+				 <button style="color: #FFFFFF;background-color: #FF0000;width: 58px;height: 34px;border-bottom-color: #214a3c;">Delete</button>
+				 </a>
+				 </td>
+				 				   
+				   </tr>
+				   
+				   {%endfor%}
+				   
+				   </tbody>
+				   
+				   
+
+</table>
+<br />
+
+    <p align="center" style="font-size:18px">Note: This page contain the list of todo table, here you can find the datas what are you have saved and also you can view when the data is edited and updated,,if needed you can also edit the field and delete it..</p>
+	
+	<br /><br /><br /><br />
+	
+	<div>
+<nav class="navbar navbar-dark bg-dark" style="font-size: 14px;font-family: serif;    height: 70px;background-color: #73dada!important;">
+
+<a class="navbar-brand test1 " href="{% url 'home' %}" style="color: #000000">Help </a>
+<a class="navbar-brand  test2" href="{% url 'home' %}" style="color: #000000"><i class="fa fa-phone"></i>&nbsp;&nbsp;90876543218 </a>
+<a class="navbar-brand  test3" href="{% url 'home' %}" style="color: #000000"><i class="fa fa-envelope"></i>&nbsp;&nbsp;livewireindia@gmail.com </a>
+</div>
+</body>
+{%endblock%}

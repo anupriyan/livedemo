@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+
+{%block title%}Todo{%endblock%}
+
+{%block content%}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<head>
+<style>
+
+.test1{
+    margin-left: 738px;
+	font-size:18px;
+	}
+	.test2{
+	margin-right: 288px;
+	font-size:18px;
+	
+	}
+	.test3{
+	margin-left: -297px;
+	font-size:18px;
+	}
+	</style>
+</head>
+<body style="background-color: #66ffcc38;">
+<h3 align="center" style=" color:#FF99CC">Add Data</h3>
+
+<form method="post" style="padding-left:500px">
+{%csrf_token%}
+
+ {{form.as_p}}
+ 
+ <input style="background-color: #FF3333; color:#FFFFFF" type="submit" name ="savetodo" value ="Save Todo">
+ 
+ </form>
+ 
+ <br />
+ <br />
+ <p align="center">Add todo page as two fields, one is title and another is description</p>
+ <br /><br /><br /><br />
+ <div>
+<nav class="navbar navbar-dark bg-dark" style="font-size: 14px;font-family: serif;    height: 70px;background-color: #73dada!important;">
+
+<a class="navbar-brand test1 " href="http://127.0.0.1:8000/todos/help/" style="color: #000000">Help </a>
+<a class="navbar-brand  test2" href="{% url 'home' %}" style="color: #000000"><i class="fa fa-phone"></i>&nbsp;&nbsp;90876543218 </a>
+<a class="navbar-brand  test3" href="{% url 'home' %}" style="color: #000000"><i class="fa fa-envelope"></i>&nbsp;&nbsp;livewireindia@gmail.com </a>
+</div>
+ </body>
+ 
+ {%endblock%}
+ 

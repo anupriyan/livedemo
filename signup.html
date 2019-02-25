@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+
+{%block title%}Registration{%endblock%}
+
+{%block content%}
+<head>
+<style>
+
+.test1{
+    margin-left: 738px;
+	font-size:18px;
+	}
+	.test2{
+	margin-right: 288px;
+	font-size:18px;
+	
+	}
+	.test3{
+	margin-left: -297px;
+	font-size:18px;
+	}
+
+
+
+</style>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body style="    background-color: aquamarine">
+<br /><br />
+
+<h3 align="center" style="color:#e43acf">Registration form</h3>
+<br />
+<form method="post" style="margin-left:370px">
+{%csrf_token%}
+
+{{form.as_p}}
+
+
+<input style="background-color:#FFCC33; color:#000033; width:100px" type='submit' name='signup' value="Sign up" />
+
+
+</form>
+
+
+</body>
+
+<br /><br /><br /><br /><br /><br />
+
+<div>
+<nav class="navbar navbar-dark bg-dark" style="font-size: 14px;font-family: serif;    height: 70px;background-color: #73dada!important;">
+
+<a class="navbar-brand test1 " href="{% url 'home' %}" style="color: #000000">Help </a>
+<a class="navbar-brand  test2" href="{% url 'home' %}" style="color: #000000"><i class="fa fa-phone"></i>&nbsp;&nbsp;90876543218 </a>
+<a class="navbar-brand  test3" href="{% url 'home' %}" style="color: #000000"><i class="fa fa-envelope"></i>&nbsp;&nbsp;livewireindia@gmail.com </a>
+</div>
+
+
+
+
+
+
+
+{%endblock%}
